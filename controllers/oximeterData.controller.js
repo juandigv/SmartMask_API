@@ -35,7 +35,7 @@ OximeterCtrl.createData = async (req, res) => {
         const DataObj = new OximeterData({ id, clientId,oxigen, heartRate,dataDate});
         await DataObj.save();
         
-        const item = await OximeterData.find({ "id": id });
+        const item = await OximeterData.findOne({ "id": id, "clientId": clientId });
         res.json(item);
     }catch(e){
         console.error(e);

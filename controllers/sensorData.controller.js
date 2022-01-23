@@ -41,8 +41,8 @@ SensorCtrl.createData = async (req, res) => {
         const DataObj = new SensorData({ id, clientId,temperature,co2,tvoc,temp_freq,mic_freq,valid,resp_type,ratio,dataDate});
         await DataObj.save();
         
-        const item = await SensorData.find({ "id": id });
-        res.json({ 'Response': 'OK' })
+        const item = await SensorData.findOne({ "id": id, "clientId":clientId });
+        res.json(item)
     } catch(e){
         console.error(e);
         res.json({ 'Response': 'Error' })
