@@ -8,6 +8,7 @@ const SensorDataSchema = new Schema({
     tvoc: { type: Number },
     temp_freq: { type: Number },
     mic_freq: { type: Number },
+    resp_freq: { type: Number },
     valid: { type: Number },
     resp_type: { type: Number },
     ratio: { type: Number },

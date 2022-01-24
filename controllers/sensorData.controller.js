@@ -33,12 +33,13 @@ SensorCtrl.createData = async (req, res) => {
     const tvoc = req.body.tvoc;
     const temp_freq = req.body.temp_freq;
     const mic_freq = req.body.mic_freq;
+    const resp_freq = req.body.resp_freq;
     const valid = req.body.valid;
     const resp_type = req.body.resp_type;
     const ratio = req.body.ratio;
     try{
         const dataDate = req.body.dataDate;
-        const DataObj = new SensorData({ id, clientId,temperature,co2,tvoc,temp_freq,mic_freq,valid,resp_type,ratio,dataDate});
+        const DataObj = new SensorData({ id, clientId,temperature,co2,tvoc,temp_freq,mic_freq,resp_freq,valid,resp_type,ratio,dataDate});
         await DataObj.save();
         
         const item = await SensorData.findOne({ "id": id, "clientId":clientId });
